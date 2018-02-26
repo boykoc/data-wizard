@@ -1,5 +1,12 @@
-<h2>{{ step.question }}</h2>
+<div *ngIf="step">
+<h2>{{ step.question }} {{ step.id }}</h2>
 <p>{{ step.helpfulText }}</p>
 <ul>
- <li *ngFor="let option of step.options">{{ option.text }}</li>
+ <li *ngFor="let option of step.options" 
+     (click)="onSelect(step, option.text)">{{ option.text }}</li>
+</ul>
+</div>
+
+<ul *ngIf="answers.length > 0">
+  <li *ngFor="let answer of answers">step id: {{ answer.step }} answer: {{ answer.answer }}</li>
 </ul>
