@@ -1,3 +1,5 @@
-<p>
-  step works!
-</p>
+<h2>{{ step.question }}</h2>
+<p>{{ step.helpfulText }}</p>
+<ul>
+ <li *ngFor="let option of step.options">{{ option.text }}</li>
+</ul>
