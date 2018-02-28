@@ -148,8 +148,7 @@ export const STEPS: Step[] = [
   {
     id: 9,
     question: 'Have you checked with FLS to ensure you don\'t need any translations?',
-    question: 'Raw data is exempt from translation but FLS coordinators will ensure that language requirements under the French Language Services Act are met and will provide advice for identified datasets on French translation needs.',
-    helpfulText: '',
+    helpfulText: 'Raw data is exempt from translation but FLS coordinators will ensure that language requirements under the French Language Services Act are met and will provide advice for identified datasets on French translation needs.',
     tag: 'Translations',
     options: [
       {
