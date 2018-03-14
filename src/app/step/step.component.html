@@ -7,6 +7,10 @@
   </ul>
 </div>
 
-<ul *ngIf="answers.length > 0 && !step">
-  <li *ngFor="let answer of answers">step id: {{ answer.step }} answer: {{ answer.answer }}</li>
+<ul *ngIf="!step && answers.length > 0">
+  <li *ngFor="let answer of answers; let i = index">
+    Step Question: {{ steps[answer.step].question }} 
+    <br/>
+    Answer: {{ answer.answer }} 
+  </li>
 </ul>

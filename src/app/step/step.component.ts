@@ -19,7 +19,7 @@ export class StepComponent implements OnInit {
   //   options: [{text: 'Option 1 text', nextStep: 2, previousStep: 0}]
   // };
 
-  step: Step = this.steps[0];
+  step: Step = this.steps[1];
 
   constructor() { }
 
@@ -27,9 +27,7 @@ export class StepComponent implements OnInit {
   }
 
   onSelect(step: Step, option: string) {
-    // this.step = this.steps.filter((step) => step.id == nextStep)[0];
     this.answers.push({step: step.id, answer: option});
-    this.step = this.steps[step.id++];
+    this.step = this.steps[step.id + 1];
   }
-
 }
