@@ -9,6 +9,7 @@ import { STEPS } from '../steps';
 })
 export class StepComponent implements OnInit {
   steps = STEPS;
+  stepsLength = Object.keys(this.steps).length;
   
   answers = [];
 

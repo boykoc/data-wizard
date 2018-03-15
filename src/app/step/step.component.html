@@ -1,11 +1,14 @@
 <div *ngIf="step">
   <h2>{{ step.id }}. {{ step.question }}</h2>
   <p>{{ step.helpfulText }}</p>
-  <ul>
-   <li *ngFor="let option of step.options; let i = index" 
+  <div>
+   <button *ngFor="let option of step.options; let i = index" 
        (click)="onSelect(step, i)"
-       class="button">{{ option.text }}</li>
-  </ul>
+       class="button">{{ option.text }}</button>
+  </div>
+  <div id="progress">
+    <p>Step {{ step.id }} of {{ stepsLength }}</p>
+  </div>
 </div>
 
 <ul *ngIf="!step && answers.length > 0">
