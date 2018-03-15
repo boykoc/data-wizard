@@ -1,6 +1,6 @@
 <div *ngIf="step">
   <h2>{{ step.id }}. {{ step.question }}</h2>
-  <p>{{ step.helpfulText }}</p>
+  <p [innerHtml]="step.helpfulText | MarkdownToHtml"></p>
   <div>
    <button *ngFor="let option of step.options; let i = index" 
        (click)="onSelect(step, i)"
@@ -11,12 +11,28 @@
   </div>
 </div>
 
-<ul *ngIf="!step && answers.length > 0">
-  <li *ngFor="let answer of answers; let i = index">
-    Step Question: {{ steps[answer.step].question }} 
-    <br/>
-    Answer: {{ steps[answer.step].options[answer.answer].text }} 
-    <br/> 
-    Action Needed: {{ steps[answer.step].options[answer.answer].finishText }}
-  </li>
-</ul>
+<div *ngIf="!step">
+  <button class="button"
+          (click)="onToggle()">
+            {{ visible ? 'See your TODOs' : 'See all questions' }}
+  </button>
+  <button class="button"
+          (click)="onPrint()">Print</button>
+
+  <ul *ngIf="visible"
+      class="styledList" >
+    <li [ngClass]="{'no-todo': steps[answer.step].options[answer.answer].finishText === ''}" 
+        *ngFor="let answer of answers; let i = index">
+      <span class="step-question">{{ steps[answer.step].question }}</span>
+      <span class="step-answer">{{ steps[answer.step].options[answer.answer].text }}</span>
+      <span class="step-todo">{{ steps[answer.step].options[answer.answer].finishText }}</span>
+    </li>
+  </ul>
+
+  <ul *ngIf="!visible" 
+      class="styledList">
+    <li *ngFor="let answer of filteredAnswers; let i = index">
+      <span class="step-todo" [innerHtml]="steps[answer.step].options[answer.answer].finishText | MarkdownToHtml"></span>
+    </li>
+  </ul>
+</div>

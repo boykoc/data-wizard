@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { StepComponent } from './step/step.component';
     StepComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MarkdownToHtmlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

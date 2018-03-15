@@ -13,7 +13,11 @@ export class StepComponent implements OnInit {
   
   answers = [];
 
+  filteredAnswers = [];
+
   step: Step = this.steps[1];
+
+  visible = true;
 
   constructor() { }
 
@@ -23,5 +27,20 @@ export class StepComponent implements OnInit {
   onSelect(step: Step, option: number) {
     this.answers.push({step: step.id, answer: option});
     this.step = this.steps[step.id + 1];
+  }
+
+  onToggle() {
+    this.filterAnswers();
+    this.visible = !this.visible;
+  }
+
+  filterAnswers() {
+      this.filteredAnswers = this.answers.filter((answer) => 
+        this.steps[answer.step].options[answer.answer].finishText !== ''
+      )
+  }
+
+  onPrint() {
+    window.print();
   }
 }

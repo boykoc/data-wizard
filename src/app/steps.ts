@@ -9,13 +9,13 @@ export const STEPS: {} = {
     options: [
       {
         text: 'Yes, it is data',
-        finishText: 'Great, it should be added to the data catalogue and data inventory.',
+        finishText: 'Since this is data it should be added to the data catalogue and data inventory.',
         nextStep: 3,
         previousStep: 0
       },
       {
         text: 'No, turns out its information',
-        finishText: 'Good to know. Information should also be published in the open, but it is published through a different channel. To get more information on how to publish open info, contact your open info ministry lead. The following is a list of of the contacts for each ministry [Ministry Open Government Contact List](https://intra.ontario.ca/wordpress/uploads/2015/10/Ministry-OG-Support-Team-Placemat-Nov-29-2017.pptx.).',
+        finishText: 'Information should also be published in the open, but it is published through a different channel. To get more information on how to publish open info, contact your open info ministry lead. The following is a list of of the contacts for each ministry [Ministry Open Government Contact List](https://intra.ontario.ca/wordpress/uploads/2015/10/Ministry-OG-Support-Team-Placemat-Nov-29-2017.pptx.).',
         nextStep: 0,
         previousStep: 0
       }
@@ -23,20 +23,20 @@ export const STEPS: {} = {
   },
   2: {
     id: 2,
-    question: 'Is your data restricted due to privacy, confidentiallity, security, legal or commercially-sensitive resons?',
+    question: 'Is your data restricted due to privacy, confidentiallity, security, legal or commercially-sensitive reasons?',
     helpfulText: 'Ministries and provincial agencies are required to release all data, unless it is exempt due to privacy, confidentiality, security, legal or commercial sensitivity reasons. However, data that is exempt from publication should still be listed in the inventory. You can learn more about [exemptions](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/data-inventory#section-1) in the Open Data Guidebook.',
     tag: '',
     options: [
       {
-        text: 'Yes, my data is restricted.',
-        finishText: 'Good catch, data that is restricted will not be published. However, your journey is not yet over. In order to be transparent with the public, you must publish the rationale for not releasing the data on our data catalogue.',
-        nextStep: 12,
+        text: 'No, my data is open.',
+        finishText: 'Open data needs to be published online (see steps below).',
+        nextStep: 3,
         previousStep: 0
       },
       {
-        text: 'No, my data is open.',
-        finishText: 'Great, this needs to be published online (see steps below).',
-        nextStep: 3,
+        text: 'Yes, my data is restricted.',
+        finishText: 'Restricted data is not published but the information about the data needs to be published. In order to be transparent with the public, you must publish the rationale for not releasing the data on our data catalogue as well as basic information about the data (e.g. name, description, etc).',
+        nextStep: 12,
         previousStep: 0
       }
     ]
@@ -74,8 +74,8 @@ export const STEPS: {} = {
         previousStep: 0
       },
       {
-        text: 'No - Do this if you think there my be issues.',
-        finishText: 'Contact legal.',
+        text: 'No',
+        finishText: 'It\'s a good idea to contact your legal branch. Legal representatives participate to provide advice on the data\'s legal issues.',
         nextStep: 0,
         previousStep: 0
       }
@@ -83,7 +83,7 @@ export const STEPS: {} = {
   },
   5: {
     id: 5,
-    question: 'Has FOIP coordinators reviews to ensure no personal or confidetial info is included or if this has been previoulsy inclued in an FOI request?',
+    question: 'Has FOIP coordinators reviewed it to ensure no personal or confidetial info is included or if this has been previoulsy inclued in an FOI request?',
     helpfulText: 'If the data contains personal information, they are required to make recommendations on whether it should be redacted, de-identified or exempt from publication. The Information and Privacy Commissioner for Ontario has published De-identification Guidelines for Structured Data.',
     tag: 'FOI',
     options: [
@@ -195,7 +195,7 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Convert data into [data file formats](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/appendix) with help from IT cluster as applicable. Ensure that specific technical requirements are met and that the data is in a machine-readable format.',
+        finishText: 'Convert your data into an applicable [data file format](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/appendix) with help from IT cluster as applicable. Ensure that specific technical requirements are met and that the data is in a machine-readable format.',
         nextStep: 0,
         previousStep: 0
       }
@@ -289,7 +289,7 @@ export const STEPS: {} = {
     options: [
       {
         text: 'Yes',
-        finishText: 'Next Step.',
+        finishText: '',
         nextStep: 3,
         previousStep: 0
       },
@@ -335,7 +335,7 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Send OGO your completed dataset package. You can email OGO at opendata@ontario.ca.',
+        finishText: 'Send OGO your completed dataset package. You can email OGO at [opendata@ontario.ca](mailto:opendata@ontario.ca).',
         nextStep: 0,
         previousStep: 0
       }
