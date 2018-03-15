@@ -2,8 +2,9 @@
   <h2>{{ step.id }}. {{ step.question }}</h2>
   <p>{{ step.helpfulText }}</p>
   <ul>
-   <li *ngFor="let option of step.options" 
-       (click)="onSelect(step, option.text)">{{ option.text }}</li>
+   <li *ngFor="let option of step.options; let i = index" 
+       (click)="onSelect(step, i)"
+       class="button">{{ option.text }}</li>
   </ul>
 </div>
 
@@ -11,6 +12,8 @@
   <li *ngFor="let answer of answers; let i = index">
     Step Question: {{ steps[answer.step].question }} 
     <br/>
-    Answer: {{ answer.answer }} 
+    Answer: {{ steps[answer.step].options[answer.answer].text }} 
+    <br/> 
+    Action Needed: {{ steps[answer.step].options[answer.answer].finishText }}
   </li>
 </ul>

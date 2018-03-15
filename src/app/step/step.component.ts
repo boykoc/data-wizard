@@ -12,13 +12,6 @@ export class StepComponent implements OnInit {
   
   answers = [];
 
-  // step: Step = {
-  //   id: 1,
-  //   question: 'Question text',
-  //   helpfulText: 'Helpful text',
-  //   options: [{text: 'Option 1 text', nextStep: 2, previousStep: 0}]
-  // };
-
   step: Step = this.steps[1];
 
   constructor() { }
@@ -26,7 +19,7 @@ export class StepComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(step: Step, option: string) {
+  onSelect(step: Step, option: number) {
     this.answers.push({step: step.id, answer: option});
     this.step = this.steps[step.id + 1];
   }
