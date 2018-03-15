@@ -4,12 +4,12 @@ export const STEPS: {} = {
   1: {
     id: 1,
     question: 'Is this data?',
-    helpfulText: 'Data is defined as facts, figures, and statistics objectively measured according to a standard or scale, such as frequency, volumes or occurrences. Data does not include information like reports or manuals.',
+    helpfulText: 'Data is defined as facts, figures, and statistics objectively measured according to a standard or scale, such as frequency, volumes or occurrences. Data does not include information like reports or manuals. You can learn [how to identify data](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/data-inventory#section-0) in the Open Data Guidebook.',
     tag: '',
     options: [
       {
         text: 'Yes, it is data',
-        finishText: '',
+        finishText: 'Great, it should be added to the data catalogue and data inventory.',
         nextStep: 3,
         previousStep: 0
       },
@@ -24,19 +24,19 @@ export const STEPS: {} = {
   2: {
     id: 2,
     question: 'Is your data restricted due to privacy, confidentiallity, security, legal or commercially-sensitive resons?',
-    helpfulText: 'Ministries and provincial agencies are required to release all data, unless it is exempt due to privacy, confidentiality, security, legal or commercial sensitivity reasons. However, data that is exempt from publication should still be listed in the inventory.',
+    helpfulText: 'Ministries and provincial agencies are required to release all data, unless it is exempt due to privacy, confidentiality, security, legal or commercial sensitivity reasons. However, data that is exempt from publication should still be listed in the inventory. You can learn more about [exemptions](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/data-inventory#section-1) in the Open Data Guidebook.',
     tag: '',
     options: [
       {
-        text: 'No, our data can be opened.',
-        finishText: '',
-        nextStep: 3,
+        text: 'Yes, my data is restricted.',
+        finishText: 'Good catch, data that is restricted will not be published. However, your journey is not yet over. In order to be transparent with the public, you must publish the rationale for not releasing the data on our data catalogue.',
+        nextStep: 12,
         previousStep: 0
       },
       {
-        text: 'Yes, our data is restricted.',
-        skipText: 'Good catch, data that is restricted will not be published. However, your journey is not yet over. In order to be transparent with the public, you must publish the rationale for not releasing the data on our data catalogue. To do this contact OGO?',
-        nextStep: 12, /*Is this the correct format?*/
+        text: 'No, my data is open.',
+        finishText: 'Great, this needs to be published online (see steps below).',
+        nextStep: 3,
         previousStep: 0
       }
     ]
@@ -45,11 +45,11 @@ export const STEPS: {} = {
     id: 3,
     question: 'Do you think the data has quality issues?',
     helpfulText: '',
-    tag: '',
+    tag: 'assess',
     options: [
       {
-        text: 'Yes - Advise to have Progam/Policy lead (data custodian) should review and document needed changes.',
-        finishText: 'You will have to improve the data before it is published. To do this, get in contact with the whoever owns the data. In order to support them, provide them with the list of [aceptable file formats](). If they have any trouble creating an acceptable file format the IT cluster can help.',
+        text: 'Yes',
+        finishText: 'You will have to improve the data before it is published. To do this contact the data custodian and discuss ways to address your concerns. Data should be complete, in the proper file format(s), contain de-identified data (if any).',
         nextStep: 3,
         previousStep: 0
       },
@@ -63,26 +63,6 @@ export const STEPS: {} = {
   },
   4: {
     id: 4,
-    question: 'Have you concidered the data benifits and limitations?',
-    helpfulText: '',
-    tag: '',
-    options: [
-      {
-        text: 'No - Advise to have Progam/Policy lead (data custodian) should review and document needed changes.',
-        finishText: '',
-        nextStep: 3,
-        previousStep: 0
-      },
-      {
-        text: 'Yes',
-        finishText: '',
-        nextStep: 0,
-        previousStep: 0
-      }
-    ]
-  },
-  5: {
-    id: 5,
     question: 'Have you checked with legal to see if there are any potential issues on their end?',
     helpfulText: '',
     tag: 'legal',
@@ -101,8 +81,8 @@ export const STEPS: {} = {
       }
     ]
   },
-  6: {
-    id: 6,
+  5: {
+    id: 5,
     question: 'Has FOIP coordinators reviews to ensure no personal or confidetial info is included or if this has been previoulsy inclued in an FOI request?',
     helpfulText: 'If the data contains personal information, they are required to make recommendations on whether it should be redacted, de-identified or exempt from publication. The Information and Privacy Commissioner for Ontario has published De-identification Guidelines for Structured Data.',
     tag: 'FOI',
@@ -121,9 +101,9 @@ export const STEPS: {} = {
       }
     ]
   },
-  7: {
-    id: 7,
-    question: 'Has the data been reviewed for accessiility and data quality or machine readable formats?',
+  6: {
+    id: 6,
+    question: 'Has the data been reviewed for accessibility and data quality or machine readable formats?',
     helpfulText: 'Your IT cluster or ministry analytics branches can help.',
     tag: 'accessibility',
     options: [
@@ -141,8 +121,8 @@ export const STEPS: {} = {
       }
     ]
   },
-  8: {
-    id: 8,
+  7: {
+    id: 7,
     question: 'Have you considered potential issues or opportunities with release of the dataset?',
     helpfulText: 'Communications can also help draft House Book notes, Issues Notes and Q&As if that would be helpful.',
     tag: 'Communications',
@@ -155,16 +135,16 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Before you continue it would be good to quickly think about what the impact of releasing this data would be. Who could use it or benefit from it? On the flip side, it is also a good idea to identify what could potentially go wrong if this data were to be released. Communications would be an excellent resource to assist you in this process.',
+        finishText: 'It would be good to quickly think about what the impact of releasing this data would be. Who could use it or benefit from it? On the flip side, it is also a good idea to identify what could potentially go wrong if this data were to be released. Communications would be an excellent resource to assist you in this process.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  9: {
-    id: 9,
+  8: {
+    id: 8,
     question: 'Have you checked with FLS to ensure you don\'t need any translations?',
-    helpfulText: 'Raw data is exempt from translation but FLS coordinators will ensure that language requirements under the French Language Services Act are met and will provide advice for identified datasets on French translation needs.',
+    helpfulText: 'The information that describes the dataset needs to be translated. Raw data is exempt from translation but FLS coordinators will ensure that language requirements under the French Language Services Act are met and will provide advice for identified datasets on French translation needs.',
     tag: 'Translations',
     options: [
       {
@@ -181,10 +161,10 @@ export const STEPS: {} = {
       }
     ]
   },
-  10: {
-    id: 10,
+  9: {
+    id: 9,
     question: 'Have you written a briefing note?',
-    helpfulText: '',
+    helpfulText: 'To help prepare the data for publication you should consider writing a briefing note with background information about the datasets, relevance, assessment, frequency of updates, issues, mitigation and recommendation.',
     tag: '',
     options: [
       {
@@ -195,14 +175,14 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Write a briefing note with x information.',
+        finishText: 'Write a briefing note with background information about the datasets, relevance, assessment, frequency of updates, issues, mitigation and recommendation.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  11: {
-    id: 11,
+  10: {
+    id: 10,
     question: 'Is the data in a machine readable format?',
     helpfulText: 'These formats include: CSV, JSON, SQL, etc.',
     tag: 'Data Quality',
@@ -215,14 +195,14 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Here is how to convert/accessibility.',
+        finishText: 'Convert data into [data file formats](https://www.ontario.ca/document/open-data-guidebook-guide-open-data-directive-2015/appendix) with help from IT cluster as applicable. Ensure that specific technical requirements are met and that the data is in a machine-readable format.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  12: {
-    id: 12,
+  11: {
+    id: 11,
     question: 'Have you completed the data description form?',
     helpfulText: '',
     tag: 'Data Quality',
@@ -235,7 +215,27 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Here is a link to the form to complete.',
+        finishText: 'Complete the data description form. Review mandatory requirements using the checklist.',
+        nextStep: 0,
+        previousStep: 0
+      }
+    ]
+  },
+  12: {
+    id: 12,
+    question: 'Have you checked in with the Open Government Office?',
+    helpfulText: 'OGO can offer advice and give approvals on the draft data description form. It is good practice to share a draft version of the data if possible as well, if seeking guidance on Open Formats.',
+    tag: 'prepare',
+    options: [
+      {
+        text: 'Yes',
+        finishText: '',
+        nextStep: 3,
+        previousStep: 0
+      },
+      {
+        text: 'No',
+        finishText: 'Contact your Open Government Lead or the Open Government Office to get advice and have your data package reviewed.',
         nextStep: 0,
         previousStep: 0
       }
@@ -243,9 +243,9 @@ export const STEPS: {} = {
   },
   13: {
     id: 13,
-    question: 'Have you checked in with the Open Government Office?',
-    helpfulText: '',
-    tag: '',
+    question: 'Have you translated the data description form?',
+    helpfulText: 'This contains the information about the data (e.g. name, description, data owner, etc) and should be translated to be published.',
+    tag: 'prepare',
     options: [
       {
         text: 'Yes',
@@ -255,7 +255,7 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Contact your OD lead',
+        finishText: 'Contact FLS Coordinator for your ministry to get help translating the data description form.',
         nextStep: 0,
         previousStep: 0
       }
@@ -263,28 +263,8 @@ export const STEPS: {} = {
   },
   14: {
     id: 14,
-    question: 'Have you translated the data description form?',
-    helpfulText: '',
-    tag: 'Translations',
-    options: [
-      {
-        text: 'Yes',
-        finishText: '',
-        nextStep: 3,
-        previousStep: 0
-      },
-      {
-        text: 'No',
-        finishText: 'Here is how to contact your FLS coordinator.',
-        nextStep: 0,
-        previousStep: 0
-      }
-    ]
-  },
-  15: {
-    id: 15,
     question: 'Have formatted data files such as Excel sheets been reviewd for accessibility compliance?',
-    helpfulText: 'Un-formatted data files that are structured for database consumption already meet accessibility requirements.',
+    helpfulText: 'Un-formatted data files that are structured for database consumption already meet accessibility requirements but structued files such as excel need to be accessible.',
     tag: 'Data Quality',
     options: [
       {
@@ -295,14 +275,14 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Here is how to use the Excel accessibility checker.',
+        finishText: 'Contact your accessibility lead to get help making the file(s) accessible.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  16: {
-    id: 16,
+  15: {
+    id: 15,
     question: 'Have you updated the House Book note?',
     helpfulText: '',
     tag: '',
@@ -315,16 +295,16 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: '?',
+        finishText: 'Ask your communications department to update the House Book Note to explain the new Dataset being published.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  17: {
-    id: 17,
+  16: {
+    id: 16,
     question: 'Have you prepared your internal approvals documentation?',
-    helpfulText: 'Each dataset and ministry are different, make sure you are getting the approval you feel you need to publish this. ',
+    helpfulText: 'Each dataset and ministry are different, make sure you are getting the approval you feel you need to publish this. The Open Data Guidebook recommends having Legal, Privacy and FLS review the dataset package and Communications, your Manager, Your Director and ADM approve the dataset package before publishing. It\'s always a good idea to keep your DMO and MO aware of the new dataset being published.',
     tag: '',
     options: [
       {
@@ -341,8 +321,8 @@ export const STEPS: {} = {
       }
     ]
   },
-  18: {
-    id: 18,
+  17: {
+    id: 17,
     question: 'Have you sent your data to OGO for publishing?',
     helpfulText: '',
     tag: '',
@@ -355,27 +335,27 @@ export const STEPS: {} = {
       },
       {
         text: 'No',
-        finishText: 'Here is how to contact your OD contact.',
+        finishText: 'Send OGO your completed dataset package. You can email OGO at opendata@ontario.ca.',
         nextStep: 0,
         previousStep: 0
       }
     ]
   },
-  19: {
-    id: 19,
+  18: {
+    id: 18,
     question: 'Have you promoted your data or do you plan to?',
     helpfulText: '',
     tag: 'Communications',
     options: [
       {
         text: 'Yes',
-        finishText: 'You did it! Go celebrate.',
+        finishText: '',
         nextStep: 3,
         previousStep: 0
       },
       {
         text: 'No',
-        finishText: 'Good opportunity to expand the impact of your data. Here is what you should consider.',
+        finishText: 'This is a good opportunity to expand the impact of your data. Here is what you should consider.',
         nextStep: 0,
         previousStep: 0
       }
